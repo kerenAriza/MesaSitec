@@ -9,12 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddScoped<Aplicacion.Servicios.CategoriasService>();
 builder.Services.AddSwaggerGen(opciones =>
 {
     opciones.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
